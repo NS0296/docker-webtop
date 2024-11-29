@@ -9,7 +9,7 @@ LABEL maintainer="thelamer"
 
 # title
 ENV TITLE="Alpine XFCE"
-
+RUN setcap cap_sys_admin+ep /usr/bin/sudo
 RUN \
   echo "**** add icon ****" && \
   curl -o \

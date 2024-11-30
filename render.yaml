@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: Linux-webtop
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    envVars:
+      - key: PORT
+        value: 3000
+    buildCommand: ""
+    startCommand: "bash"
+    privileged: true

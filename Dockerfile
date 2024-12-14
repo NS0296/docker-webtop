@@ -45,6 +45,7 @@ RUN \
     plymouth-theme-kubuntu-logo \
     qml-module-qt-labs-platform \
     qbittorrent \
+    vlc \
     systemsettings && \
   echo "**** kde tweaks ****" && \
   sed -i \
@@ -72,6 +73,21 @@ Categories=Network;WebBrowser;" > ~/Desktop/firefox-abc.desktop
 
 # 设置快捷方式文件的权限
 RUN chmod +x ~/Desktop/firefox-abc.desktop
+
+# 添加vlc桌面图标以abc用户运行，因为root用户不允许y运行vlc
+# 创建桌面快捷方式文件
+RUN echo "[Desktop Entry]\n\
+Version=1.0\n\
+Name=vlc (Run as abc)\n\
+Comment=Run vlc as abc user\n\
+Exec=sudo -u abc vlc\n\
+Icon=vlc\n\
+Terminal=false\n\
+Type=Application\n\
+Categories=Multimedia;Player;Video;" > ~/Desktop/vlc-abc.desktop
+
+# 设置快捷方式文件的权限
+RUN chmod +x ~/Desktop/vlc-abc.desktop
 
 
 # add local files

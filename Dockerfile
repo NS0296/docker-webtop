@@ -58,6 +58,21 @@ RUN \
     /var/lib/apt/lists/* \
     /var/tmp/* \
     /tmp/*
+# 添加火狐浏览器桌面图标以abc用户运行，因为root用户不允许运行火狐浏览器
+# 创建桌面快捷方式文件
+RUN echo "[Desktop Entry]\n\
+Version=1.0\n\
+Name=Firefox (Run as abc)\n\
+Comment=Run Firefox as abc user\n\
+Exec=sudo -u abc firefox\n\
+Icon=firefox\n\
+Terminal=false\n\
+Type=Application\n\
+Categories=Network;WebBrowser;" > ~/Desktop/firefox-abc.desktop
+
+# 设置快捷方式文件的权限
+RUN chmod +x ~/Desktop/firefox-abc.desktop
+
 
 # add local files
 COPY /root /

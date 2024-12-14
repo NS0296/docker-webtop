@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:ubuntunoble
+FROM exwjk/kasm:baseimage-kasmvnc
 
 # set version label
 ARG BUILD_DATE
@@ -44,6 +44,7 @@ RUN \
     plasma-workspace \
     plymouth-theme-kubuntu-logo \
     qml-module-qt-labs-platform \
+    qbittorrent \
     systemsettings && \
   echo "**** kde tweaks ****" && \
   sed -i \

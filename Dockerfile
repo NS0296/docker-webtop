@@ -62,7 +62,7 @@ RUN \
 # add local files
 COPY /root /
 COPY diy.sh /root/diy.sh
-RUN sudo bash ./root/diy.sh
+RUN sudo bash /root/diy.sh
 
 # ports and volumes
 EXPOSE 3000

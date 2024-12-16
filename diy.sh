@@ -1,3 +1,4 @@
+#!/bin/bash
 apt-get update
 apt-get install -y qbittorrent
 apt-get install  -y vlc
